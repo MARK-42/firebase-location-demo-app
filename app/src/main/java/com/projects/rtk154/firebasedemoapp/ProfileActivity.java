@@ -115,7 +115,6 @@ public class ProfileActivity extends AppCompatActivity {
                     userDataList.add(name);
                 }
                 progressBar.setVisibility(View.GONE);
-//                Toast.makeText(ProfileActivity.this,"hello",Toast.LENGTH_LONG).show();
 
                 userDataAdapter userDataSet=new userDataAdapter(ProfileActivity.this, userDataList);
 
