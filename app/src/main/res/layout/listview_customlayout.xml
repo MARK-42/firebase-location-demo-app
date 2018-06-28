@@ -17,5 +17,12 @@
         android:layout_height="wrap_content"
         tools:text="Ranchi,Jharkhand"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+    <TextView
+        android:id="@+id/LocationListTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="La - 23.3076778 , Lo - 85.40765711"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"/>
 
 </LinearLayout>

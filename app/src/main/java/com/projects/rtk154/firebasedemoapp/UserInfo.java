@@ -5,12 +5,13 @@ package com.projects.rtk154.firebasedemoapp;
  */
 
 public class UserInfo {
-    public String mName,mAddress;
+    public String mName,mAddress,mLocation;
 
     public UserInfo(){}
-    public UserInfo(String Name, String Address) {
+    public UserInfo(String Name, String Address,String Location) {
         this.mName = Name;
         this.mAddress = Address;
+        this.mLocation=Location;
     }
 
     public String getmName() {
@@ -29,4 +30,11 @@ public class UserInfo {
         this.mAddress = mAddress;
     }
 
+    public String getmLocation() {
+        return mLocation;
+    }
+
+    public void setmLocation(String mLocation) {
+        this.mLocation = mLocation;
+    }
 }

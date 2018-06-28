@@ -26,10 +26,9 @@ import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth mFirebaseAuth;
-    DatabaseReference databaseReference,databaseReference2;
-    FirebaseUser user,user2;
+    DatabaseReference databaseReference;
+    FirebaseUser user;
     ArrayList<UserInfo> userDataList =new ArrayList<>();
-//    ArrayList<UserInfo> nuller=new ArrayList<>();
     ListView mListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,6 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
             finish();
         }
-//        nuller.add(new UserInfo("",""));
         mFirebaseAuth=FirebaseAuth.getInstance();
         user=FirebaseAuth.getInstance().getCurrentUser();
         if(user.getDisplayName()!=null)
@@ -52,7 +50,6 @@ public class ProfileActivity extends AppCompatActivity {
             tv.setText("User-ID :- "+user.getEmail());
         user=FirebaseAuth.getInstance().getCurrentUser();
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
-//        databaseReference2=FirebaseDatabase.getInstance().getReference(user.getEmail());
         final EditText name=(EditText)findViewById(R.id.Name);
         final EditText address=(EditText)findViewById(R.id.Address);
         Button submit=(Button)findViewById(R.id.SubmitButton);
@@ -60,7 +57,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//getLocation
 
                 addInfo(name,address);
                 String nameEntered= name.getText().toString().trim();
@@ -75,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//stop getting location
                 mFirebaseAuth.signOut();
                 finish();
                 startActivity(new Intent(ProfileActivity.this,LoginActivity.class));
@@ -91,15 +88,12 @@ public class ProfileActivity extends AppCompatActivity {
             showInfo();
             return;
         }
-        UserInfo information = new UserInfo(nameEntered,addressEntered);
+        UserInfo information = new UserInfo(nameEntered,addressEntered,"location");
         user=FirebaseAuth.getInstance().getCurrentUser();
         databaseReference.child(user.getUid()).setValue(information);
-//        databaseReference2.child(user.getEmail()).setValue(information);
         Toast.makeText(ProfileActivity.this,"Information Saved ",Toast.LENGTH_LONG).show();
     }
     private void showInfo() {
-//        userDataAdapter userDataSet=new userDataAdapter(ProfileActivity.this, nuller);
-//        mListView.setAdapter(userDataSet);
         final ProgressBar progressBar=(ProgressBar)findViewById(R.id.progressProfile);
         progressBar.setVisibility(View.VISIBLE);
         userDataList.clear();

@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 public class userDataAdapter extends ArrayAdapter<UserInfo> {
-    View customListView;
+
     ArrayList<UserInfo> userdata=new ArrayList<>();
 
     public userDataAdapter(@NonNull Context context, @NonNull ArrayList<UserInfo> objects) {
@@ -35,9 +35,12 @@ public class userDataAdapter extends ArrayAdapter<UserInfo> {
                     R.layout.listview_customlayout, null, true);
         TextView nameList=(TextView)listItemView.findViewById(R.id.nameListTV);
         TextView AddressList=(TextView)listItemView.findViewById(R.id.AdressListTV);
+        TextView locationList=(TextView)listItemView.findViewById(R.id.LocationListTV);
         UserInfo userData = userdata.get(position);
         nameList.setText(userData.getmName().toString());
         AddressList.setText(userData.getmAddress().toString());
+        String s=userData.getmLocation();
+        locationList.setText(userData.getmLocation());
         return listItemView;
     }
 }
