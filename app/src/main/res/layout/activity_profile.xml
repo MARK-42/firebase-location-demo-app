@@ -27,7 +27,12 @@
         android:id="@+id/SubmitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit and Show"/>
+        android:text="Submit"/>
+    <!--<Button-->
+        <!--android:id="@+id/ShowButton"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Show"/>-->
     <Button
         android:id="@+id/LogoutButton"
         android:layout_width="match_parent"

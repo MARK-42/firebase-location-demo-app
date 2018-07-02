@@ -1,0 +1,4 @@
+#Mon Jul 02 14:04:22 IST 2018
+base.0=/home/rtk154/vc/ishare2/firebaseDemoApp/app/build/intermediates/transforms/dexMerger/debug/24
+path.0=classes.dex
+renamed.0=classes.dex
