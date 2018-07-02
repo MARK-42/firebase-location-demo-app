@@ -110,6 +110,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
         mFirebaseAuth=FirebaseAuth.getInstance();
         user=FirebaseAuth.getInstance().getCurrentUser();
+
         if(user.getDisplayName()!=null)
             tv.setText(" "+user.getDisplayName());
         else
